@@ -1,10 +1,6 @@
-import { useState, useEffect } from "react";
-import { toast } from "react-toastify";
-import queryString from "query-string";
-import axios from "axios";
+import { Link } from "react-router-dom";
 
-function Slider(props) {  
-  
+function Slider(props) {   
 
   return (
       <div>
@@ -19,7 +15,16 @@ function Slider(props) {
                   <span data-feather="home"></span>
                   Admin Detail<span class="sr-only">(current)</span>
                 </a>
-              </li>
+                  </li>
+
+                  <li class="nav-item">
+                <Link to="/login">                
+                  Add
+                </Link>
+                  </li>
+                  
+                  
+                  
               <li class="nav-item">
                 <a class="nav-link" href="#">
                   <span data-feather="file"></span>

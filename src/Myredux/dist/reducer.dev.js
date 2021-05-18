@@ -35,6 +35,13 @@ function Rohit() {
         return state;
       }
 
+    case "OderList":
+      {
+        state = _objectSpread({}, state);
+        state['MyOder'] = payload;
+        return state;
+      }
+
     default:
       return state;
   }

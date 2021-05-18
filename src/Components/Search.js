@@ -33,8 +33,8 @@ function Search(props) {
   return (
     <div>    
       <div className="row" style={{ marginTop: "4em" }}>
-        {Loading && <div>
-          <div class="text-center">
+        {Loading &&  <div>         
+          <div class="text-center">            
   <div class="spinner-border" role="status">
     <span class="sr-only">Loading...</span>
   </div>

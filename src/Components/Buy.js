@@ -1,6 +1,7 @@
 import { Component } from "react";
 import axios from 'axios';
 import { connect } from 'react-redux'
+import { toast } from "react-toastify";
 
 class Buy extends Component{
   constructor(props) {
@@ -51,16 +52,15 @@ class Buy extends Component{
         data:this.Cakeoder,
         headers:{"authtoken":localStorage.token}
     }).then((res)=>{
-        console.log(res.data)
-    },(err)=>{console.log(err)})
-}
-  
-     
+      console.log(res.data)
+      toast("Your Order is Book")
+    },(err) => { console.log(err) })
+}     
 
   render() {
     return (
       <div>
-        <form style={{ marginTop: "4.3em", padding: "0em 28em", backgroundColor: "#F7F2F2" }}>
+        <form style={{ marginTop: "4.3em", padding: "0em 28em" }}>
           <div class="form-group" >
             <label for="Name" style={{ fontSize: "1.1em" }}>Name</label>
             <input type="text" onChange={this.userName.bind(this)} name="name" class="form-control" style={{ height: "2em" }} aria-describedby="emailHelp"></input>

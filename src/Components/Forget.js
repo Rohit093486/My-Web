@@ -54,7 +54,7 @@ class Forget extends Component {
         return (
             <div>  
             <div>
-           <form style={{ padding: "10.9em 20em",backgroundColor:"#DEECDC",marginTop:"4em"}}>
+           <form style={{ padding: "15.5em 20em",backgroundColor:"#DEECDC",marginTop:"4em"}}>
            <h3 style={{ color: "red" }}>FORGOTTEN PAGE</h3>
                         
             <div class="form-group">

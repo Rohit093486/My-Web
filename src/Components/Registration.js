@@ -52,7 +52,7 @@ class Registration extends Component {
         return (
             <div>  
                  <div>
-                <form style={{ padding: "5em 20em",backgroundColor:"#DCE5EC" ,marginTop:"4em"}}>
+                <form style={{ padding: "10em 20em",backgroundColor:"#DCE5EC" ,marginTop:"4em"}}>
                 <h3 style={{color:"red"}}>Registration</h3>
             <div class="form-group">
             <label for="exampleInputEmail1">EMAIL ADDRESS</label>

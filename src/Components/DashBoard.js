@@ -46,7 +46,8 @@ function DashBoard() {
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h3 class="h2"  style={{color:"tomato" , fontFamily:"-moz-initial"}}>Dashboard</h3>
             <div class="btn-toolbar mb-2 mb-md-0">
-            <div class="btn-group mr-2">
+              <div class="btn-group mr-2">
+              <Link to="/Addcake"> <button class="btn btn-sm btn-outline-secondary" style={{marginRight:'3em'}}>New cake</button></Link>
                 <Link to="/dash"><button class="btn btn-sm btn-outline-secondary" onClick={onbuton}>Sort</button></Link>
                 <button class="btn btn-sm btn-outline-secondary">Filter</button>
               </div>  

@@ -12,10 +12,10 @@ var _reducer = require("./reducer");
 var store = (0, _redux.createStore)(_reducer.Rohit, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 store.dispatch({
   type: "Login"
-}); // store.dispatch({
-//     type:"Logout"
-// })
-
+});
+store.dispatch({
+  type: "OderList"
+});
 store.dispatch({
   type: 'Oder'
 });

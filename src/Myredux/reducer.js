@@ -10,6 +10,11 @@ export function Rohit(state = {}, {type, payload }) {
             state = { ...state }
             state['oderplace']=payload
             return state
+        }            
+        case "OderList": {
+            state = { ...state }
+            state['MyOder']=payload
+            return state
         }
          default:return state  
     }

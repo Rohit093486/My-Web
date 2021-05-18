@@ -15,6 +15,8 @@ import Details from './Components/Details';
 import Cart from "./Components/Cart";
 import Address from "./Components/Address";
 import Buy from './Components/Buy';
+import OrderList from './Components/OrderList';
+import Addcake from './Components/Addcake';
 
 
 function App() {
@@ -35,8 +37,10 @@ function App() {
           <Route exact path="/cakedetails/:id" component={CakeDetails} />
           <Route exact path="/details/:id" component={Details} />
           <Route  path="/cart"exact component={Cart} />
-          <Route path="/address" exact component={Address} />
-          <Route path="/addres" exact component={Buy} />    
+          {/* <Route path="/address" exact component={Address} /> */}
+          <Route path="/addres" exact component={Buy} />
+          <Route path="/OrderBag" exact component={OrderList} />
+          <Route path="/Addcake" exact component={Addcake} />
         </div>
       </BrowserRouter>
       <ToastContainer />

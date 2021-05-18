@@ -8,9 +8,9 @@ store.dispatch({
     type:"Login"
 })
 
-// store.dispatch({
-//     type:"Logout"
-// })
+store.dispatch({
+    type:"OderList"
+})
 store.dispatch({
     type:'Oder'
 })
