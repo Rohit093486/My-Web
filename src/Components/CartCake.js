@@ -5,14 +5,14 @@ class CartCake extends Component {
     constructor(props) {
         super(props)
       this.state = {
-                   
+          qty: this.props.cakedata.quantity,
+          price:this.props.cakedata.price,
+          total: this.props.cakedata.price,
+          totalPrice: 0,          
         }               
     }
         
-    // qty: this.props.cakedata.quantity,
-    // price:this.props.cakedata.price,
-    // total: this.props.cakedata.price,
-    // totalPrice: 0, 
+ 
   
   
     remove = () => {
