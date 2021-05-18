@@ -17,11 +17,11 @@ function Slider(props) {
                 </a>
                   </li>
 
-                  <li class="nav-item">
+                  {/* <li class="nav-item">
                 <Link to="/login">                
                   Add
                 </Link>
-                  </li>
+                  </li> */}
                   
                   
                   
