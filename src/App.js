@@ -13,18 +13,19 @@ import { ToastContainer, toast } from 'react-toastify';
 import CakeDetails from './Components/CakeDetails';
 import Details from './Components/Details';
 import Cart from "./Components/Cart";
-import Address from "./Components/Address";
 import Buy from './Components/Buy';
 import OrderList from './Components/OrderList';
 import Addcake from './Components/Addcake';
+import Checkout from './Components/Checkout';
+import Routes from './Components/Route';
+import Address from './Components/Address';
 
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar />
-       
+        <Navbar />   
         
         <div>
           <Route path='/' exact component={Home} />
@@ -36,11 +37,12 @@ function App() {
           <Route path='/productForm' exact component={ProductForm} />
           <Route exact path="/cakedetails/:id" component={CakeDetails} />
           <Route exact path="/details/:id" component={Details} />
-          <Route  path="/cart"exact component={Cart} />
-          {/* <Route path="/address" exact component={Address} /> */}
-          <Route path="/addres" exact component={Buy} />
+          <Route  path="/cart"exact component={Cart} />          
+          <Route path="/address" exact component={Address} />          
           <Route path="/OrderBag" exact component={OrderList} />
           <Route path="/Addcake" exact component={Addcake} />
+          <Route path="/checkout" exact component={Checkout} />
+          <Route path="/route" exact component={Routes} />
         </div>
       </BrowserRouter>
       <ToastContainer />

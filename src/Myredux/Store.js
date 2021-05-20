@@ -4,9 +4,9 @@ import {Rohit} from "./reducer"
 
 var store  = createStore(Rohit,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
-store.dispatch({
-    type:"Login"
-})
+// store.dispatch({
+//     type:"Login"
+// })
 
 store.dispatch({
     type:"OderList"

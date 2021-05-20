@@ -9,10 +9,10 @@ var _redux = require("redux");
 
 var _reducer = require("./reducer");
 
-var store = (0, _redux.createStore)(_reducer.Rohit, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
-store.dispatch({
-  type: "Login"
-});
+var store = (0, _redux.createStore)(_reducer.Rohit, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()); // store.dispatch({
+//     type:"Login"
+// })
+
 store.dispatch({
   type: "OderList"
 });

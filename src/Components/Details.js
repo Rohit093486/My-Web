@@ -16,7 +16,7 @@ class Details extends Component {
    
 
     registers = () => {
-     
+             
         //   const history = new useHistory();
         var cartCake = {
             cakeid: this.props.cakedata.cakeid,
@@ -53,32 +53,32 @@ class Details extends Component {
     render() {
         console.log("state,", this.props)
         return (
-            <div>
-            <div class="card mb-3" style={{ maxWidth: "80vw" ,marginLeft:"13em" ,border:"none" ,}}>
-            <Link to={`/cakedetails/${this.props.cakedata.cakeid}`}>
-            <div  class="card detail-card border-0" style={{marginTop:"5em"}}>
-              <div class="row no-gutters">
-                <div class="col-md-4" >
-                <img src={this.props.cakedata.image} style={{height:"100%" ,width:'23vw'}}class="card-img-top cakeImg " alt="..."></img>
+            <div style={{width:"100vw",height:"97vh"}}>
+            <div class="card mb-3" style={{ maxWidth: "75vw" ,marginLeft:"10em" ,marginTop:"10em",border:"none" ,}}>
+                    <Link to={`/cakedetails/${this.props.cakedata.cakeid}`}>                    
+            <div  class="card detail-card" style={{marginBottom:"2em",backgroundColor:"#F0F3F4 "}}>
+              <div class="row no-gutters" >
+                <div class="col-md-4" style={{width:"100%", marginTop:"2em",marginBottom:"6em"}}>
+                <img src={this.props.cakedata.image} style={{height:"100%",marginLeft:"2em" ,width:'23vw'}}class="card-img-top cakeImg " alt="..."></img>
+                <p class="card-text" style={{ marginTop: "1em", fontSize: "1.4em", color: "black", fontFamily: "cursive" }}>{`${this.props.cakedata.ingredients} `}</p>
                 </div>
                 <div class="col-md-8">
-                  <div class="card-body" style={{color:"burlywood" ,fontSize:"1em" ,marginRight:"25em"}}>
-                      <h3 class="card-title">{this.props.cakedata.name}</h3>                
-                            <p class="card-text">Ratings : {this.props.cakedata.ratings}</p>  
-                            <p class="card-text">Price : {this.props.cakedata.price}</p>  
-                            <p class="card-text">Description : {this.props.cakedata.description}</p>
-                            <p class="card-text">Weight : {this.props.cakedata.weight} kg</p>  
-                            <p class="card-text">Flavour : {this.props.cakedata.flavour}</p>  
-                            <p class="card-text">Type : {this.props.cakedata.type}</p>                  
-                            <p class="card-text">Like : {this.props.cakedata.likes}😍</p>   
-                            <button  onClick={(e) => {
-                  e.preventDefault()
-                //    console.log("hiiiiii")
-                  this.registers();
-                 
-                }} type="button" class="btn btn-success">Add To Cart <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16" style={{color:"black"}}>
-                <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
-              </svg><i class="fas fa-cart-plus"></i></button>                 
+                  <div class="card-body" >
+                      <h1 class="card-title" style={{color:"black",marginTop:"1em",fontFamily:"cursive"}}>{this.props.cakedata.name}</h1>                
+                            <p class="card-text" style={{color:"#F3B818",fontSize:"1.5em"}}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill"style={{marginTop:"-7px"}} viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                            </svg>  {this.props.cakedata.ratings}</p>
+                            <p class="card-text" style={{fontSize:"1.2em",marginTop:"-1em",color:"black",fontFamily:"cursive"}}>{this.props.cakedata.reviews}  reviews</p>
+                            <p class="card-text" style={{fontSize:"1.4em",color:"black",fontFamily:"cursive"}}>{this.props.cakedata.description}</p>
+                            <p class="card-text"style={{fontSize:"2em",fontFamily:"cursive",color:"#F3B818"}}><span style={{color:"black",fontFamily:"cursive"}}>CURRENT PRICE : </span>${this.props.cakedata.price}</p> 
+                            <p class="card-text"style={{fontSize:"2em",marginTop:"-0.5em",color:"black",fontFamily:"cursive"}}>Weight : {this.props.cakedata.weight} kg</p>
+                            <p class="card-text"style={{fontSize:"2em",fontFamily:"cursive",color:"#F3B818"}}><span style={{color:"black",fontFamily:"cursive"}}>FLAVOUR : </span>{this.props.cakedata.flavour}</p>
+                            <p class="card-text" style={{color:"black",fontSize:"1.4em",fontFamily:"cursive"}}>Type </p>
+                            <p class="card-text" style={{marginTop:"-1em",fontSize:"1.4em",color:"black",fontFamily:"cursive"}}>{this.props.cakedata.type}</p>        
+                            <button onClick={(e) => {
+                                e.preventDefault()                
+                                this.registers();                 
+                             }} type="button" class="btn btn-success" style={{marginTop:"5em"}}>Add To Cart</button>                 
                   </div>            
                 </div>
                     </div>

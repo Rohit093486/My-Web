@@ -39,12 +39,13 @@ function Search(props) {
     <span class="sr-only">Loading...</span>
   </div>
 </div>
-        </div>}
+    </div>}
         
-      {cakeresult.map((each) => {
+      {!Loading&&cakeresult.map((each) => {
         return <Cake cakedata={each} />;
       })}
-        {cakeresult.length<=0 && <div>
+        {!Loading&&cakeresult.length<=0 &&
+         <div>
                 <div class="card" style={{marginLeft:"16em",marginTop:"10em"}}>
                     <div class="card-header">
                         <b>Oop!</b> 

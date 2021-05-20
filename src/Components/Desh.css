@@ -7,6 +7,11 @@ body {
     height: 16px;
     vertical-align: text-bottom;
   }
+  /* td, th {
+    border: 1px solid black;
+    text-align: center;    
+    
+  } */
   
   /*
    * Sidebar

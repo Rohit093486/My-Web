@@ -94,6 +94,7 @@ class Login extends Component {
                     toast("Welcome");                    
                     console.log("message ;.....", this.message);
                     localStorage.setItem("token", res.data.token);
+                    localStorage.setItem("name", res.data.name);
                     this.props.dispatch({
                         type: "Login",
                         payload: res.data

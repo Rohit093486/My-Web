@@ -10,7 +10,8 @@ import {queryString} from "querystring"
 
 function CakeDetails(props){
 
-    var [cakeresult, setCakes] = useState({});
+  var [cakeresult, setCakes] = useState({});
+  var [Loading ,setLoading]=useState(true)
 
     // console.log("ca",cakeresult,setCakes);
     // var query = queryString.parse(props.location.cakes);
@@ -22,32 +23,35 @@ function CakeDetails(props){
     useEffect(() => {
         // alert("hii")
         var apiurl = "https://apifromashu.herokuapp.com/api/cake/"+qq;
-        // console.log("apiii",apiurl)
-        
+        // console.log("apiii",apiurl)       
         fetch(apiurl)
         .then(res => res.json())
         .then(
           (response) => {
-            console.log('respoo',response)
-           
-       
+            console.log('respoo',response)       
             setCakes(response.data);
-
             console.log(cakeresult)
+            setLoading(false);
+            
           })      
 
       }, [props.match.params.id]);  
      
   
-        return (
-            <div>
-            <div className="row">
-              {/* {cakeresult.map((each) => { */}
-                 <Details cakedata={cakeresult} />;
-              {/* })}       */}
-              
-              </div>
-            </div>
+  return (
+    <div>
+    {Loading && <div>
+      <div class="d-flex justify-content-center" style={{margin:"100px 100px"}}>
+      <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+      </div>
+      </div></div>}
+    
+      {!Loading && <div className="row">
+        <Details cakedata={cakeresult} />
+      </div>}
+      </div>         
+    
         
         )
     }
