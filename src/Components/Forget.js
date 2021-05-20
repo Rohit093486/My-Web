@@ -63,7 +63,7 @@ class Forget extends Component {
               <p>{this.state.nameErr}</p>
                 </div>
        
-    <Link to="/login"><button type="submit" class="btn btn-primary" onClick={this.Click}>Submit</button></Link>                  
+    <Link to="/login"  style={{textDecorationColor:"#F0F3F4 "}}><button type="submit" class="btn btn-primary" onClick={this.Click}>Submit</button></Link>                  
                
    </form> 
 

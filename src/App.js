@@ -1,4 +1,4 @@
-
+import React, { Suspense } from 'react';
 import './App.css';
 import { BrowserRouter, Route, Router } from 'react-router-dom';
 import Navbar from './Components/Navbar';
@@ -7,7 +7,7 @@ import Login from './Components/Login';
 import Registration from './Components/Registration';
 import Forget from './Components/Forget';
 import Search from './Components/Search';
-import DashBoard from './Components/DashBoard';
+// import DashBoard from './Components/DashBoard';
 import ProductForm from './Components/ProductForm';
 import { ToastContainer, toast } from 'react-toastify';
 import CakeDetails from './Components/CakeDetails';
@@ -19,6 +19,8 @@ import Addcake from './Components/Addcake';
 import Checkout from './Components/Checkout';
 import Routes from './Components/Route';
 import Address from './Components/Address';
+const OtherComponent = React.lazy(() => import('./Components/DashBoard'));
+
 
 
 function App() {
@@ -33,7 +35,9 @@ function App() {
           <Route path='/registration' exact component={Registration} />
           <Route path='/forget' exact component={Forget} />
           <Route path='/search' exact component={Search} />     
-          <Route path='/dash' exact component={DashBoard} />
+          <Route path='/dash' exact><Suspense fallback={<div>Loading...</div>}>
+        <OtherComponent />
+      </Suspense></Route>
           <Route path='/productForm' exact component={ProductForm} />
           <Route exact path="/cakedetails/:id" component={CakeDetails} />
           <Route exact path="/details/:id" component={Details} />

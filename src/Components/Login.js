@@ -150,8 +150,8 @@ class Login extends Component {
                         <p>{this.state.passErr}</p>
                         
                     </div>                    
-                    <Link to='/'><button type="submit" class="btn btn-primary" onClick={this.Click}>Login</button></Link>
-                    <Link to="/registration"><button type="submit" class="btn btn-primary" style={{ marginLeft: "2em" }}>Registration</button></Link>                    
+                    <Link to='/'  style={{textDecorationColor:"#F0F3F4 "}}><button type="submit" class="btn btn-primary" onClick={this.Click}>Login</button></Link>
+                    <Link to="/registration"  style={{textDecorationColor:"#F0F3F4 "}}><button type="submit" class="btn btn-primary" style={{ marginLeft: "2em" }}>Registration</button></Link>                    
                 </form>        
             </div>            
         )

@@ -5,16 +5,11 @@ import { toast } from "react-toastify";
 
 
 
-class Details extends Component {
-
-    
+class Details extends Component {    
     constructor(props) {
         super(props)
         this.state = {}
     }
-
-   
-
     registers = () => {
              
         //   const history = new useHistory();
@@ -43,19 +38,14 @@ class Details extends Component {
             
         }, ((err) => {
             console.log("hello",err);
-          }))
-  
+          }))  
     }
-
-    
-    
-
     render() {
         console.log("state,", this.props)
         return (
             <div style={{width:"100vw",height:"97vh"}}>
             <div class="card mb-3" style={{ maxWidth: "75vw" ,marginLeft:"10em" ,marginTop:"10em",border:"none" ,}}>
-                    <Link to={`/cakedetails/${this.props.cakedata.cakeid}`}>                    
+                    <Link to={`/cakedetails/${this.props.cakedata.cakeid}`} style={{textDecorationColor:"#F0F3F4 "}}>                    
             <div  class="card detail-card" style={{marginBottom:"2em",backgroundColor:"#F0F3F4 "}}>
               <div class="row no-gutters" >
                 <div class="col-md-4" style={{width:"100%", marginTop:"2em",marginBottom:"6em"}}>
@@ -78,9 +68,14 @@ class Details extends Component {
                             <button onClick={(e) => {
                                 e.preventDefault()                
                                 this.registers();                 
-                             }} type="button" class="btn btn-success" style={{marginTop:"5em"}}>Add To Cart</button>                 
+                                        }} type="button" class="btn btn-warning" style={{color:"white"}} >Add To Cart</button>
+                                        <button type="button" style={{marginLeft:"1em" ,color:"white"}} class="btn btn-warning" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+</svg></button>
+                                        
                   </div>            
-                </div>
+                                </div>
+                                
                     </div>
                     </div>
                 </Link>                

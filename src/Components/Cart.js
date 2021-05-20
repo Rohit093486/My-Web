@@ -21,10 +21,8 @@ class Cart extends Component {
                 type: "Oder",
                 payload: Response.data
            })
-            
             this.cakes = Response.data.data
-            console.log(this.cakes[0].name);
-            
+            // console.log(this.cakes[0].name);            
             this.setState({
                 cakes: Response.data.data
             })
@@ -46,16 +44,28 @@ class Cart extends Component {
                   </svg>Your Cart</h1>
                  <div style={{display:"flex",justifyContent:"space-around"}}>
                 <div>
-                {
-                     this.state.cakes.map((each, index) => {
+                {   this.state.cakes.map((each, index) => {
                       console.log(each,index)
                        return <CartCake key={index} cakedata={each} />                                    
-                     })     
-                }
+                     })                             
+                          }                          
+                          {
+                             this.state.cakes.length <= 0 && <div>
+                              <div class="card" style={{marginLeft:"16em",marginTop:"10em"}}>
+                    
+                    <div class="card-body">                        
+              <h1> <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
+  <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+</svg>Your Shooping Cart Is Empty</h1>
+            </div>            
+                    </div>
+                              </div>
+                          }                          
                   </div>
-                  <div style={{marginTop:"2em",width:"15vw",height:"10vh"}} >
-                      <Link to="/route"><button type="button" class="btn btn-success">CheckOut</button></Link>
-                      </div> 
+                      {this.state.cakes.length <= 0 ?"":<div style={{ marginTop: "2em", width: "15vw", height: "10vh" }} >
+                          <Link to="/route"  style={{textDecorationColor:"#F0F3F4 "}}><button type="button" class="btn btn-success">CheckOut</button></Link>
+                      </div>
+                      }
                   </div>
             </div>
         )

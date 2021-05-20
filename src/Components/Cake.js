@@ -15,7 +15,7 @@ class Cake extends Component {
         console.log("state,",this.props)
         return (
              <div style={{borderBlockStyle:"#DCE5EC 2px solid",backgroundColor:"#F0F3F4 "}}>   
-              <Link to={`/cakedetails/${this.props.cakedata.cakeid}`}>
+              <Link to={`/cakedetails/${this.props.cakedata.cakeid}`} style={{textDecorationColor:"white"}}>
               <div class="card" style={{width: "18.3rem" , margin:"1.5rem"}}>
               <img style={{height:"15em"}} src={this.props.cakedata.image} class="card-img-top rounded-lg" alt="..."></img>
                 <div class="card-body" style={{color:"chocolate"}}>

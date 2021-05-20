@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState ,useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 
@@ -12,38 +12,43 @@ function Addcake() {
             headers:{"authtoken":localStorage.token}
         })
             .then((res) => {
-            console.log(res);
+                console.log(res.data.imageUrl);
+                toast("");
+                NewCake.image = res.data.imageUrl;
         })
-    }
-
+    }     
     var NewCake = {}
-
     var userName=(event)=>{
-      this.NewCake.name=event.target.value
+      NewCake.name=event.target.value
    }   
    var weight=(event)=>{
-      this.NewCake.weight=event.target.value
+      NewCake.weight=event.target.value
     }
     var description=(event)=>{
-        this.NewCake.description=event.target.value
+        NewCake.description=event.target.value
     }
     var ingredients=(event)=>{
-        this.NewCake.ingredients=event.target.value
+        NewCake.ingredients=event.target.value
      }
-     var category=(event)=>{
-        this.NewCake.category=event.target.value
+     var type=(event)=>{
+        NewCake.type=event.target.value
      }
      var eggless=(event)=>{
-        this.NewCake.eggless=event.target.value
+        NewCake.eggless=event.target.value
      }
      var price=(event)=>{
-        this.NewCake.price=event.target.value
-    }
-    
+        NewCake.price=event.target.value
+    }    
     var save=(e)=>{
         e.preventDefault();
-        console.log(NewCake)
-
+        console.log(NewCake);
+        axios.post("https://apifromashu.herokuapp.com/api/addcake",NewCake,{
+            headers:{"authtoken":localStorage.token}
+        })
+            .then((res) => {
+                console.log(res, "cake update");
+                toast("Add new Cake Success");
+        })
     }
    
    return (
@@ -57,12 +62,7 @@ function Addcake() {
 </div>
 <div class="form-group">
       <label for="validationTooltip04">Weight</label>
-      <select class=" form-control" onChange={weight}  style={{height:"2em"}} id="validationTooltip04" required>
-        <option selected disabled value="" onChange={weight} >Choose...</option>
-                        <option>500 gm</option>
-                        <option>1 kg</option>
-                        <option>1.5 kg</option>
-                    </select>
+      <input type="text" onChange={weight}  class="form-control" style={{height:"2em"}} aria-describedby="emailHelp"></input>
                 </div>    
 <div class="form-group" >
     <label for="Cake" style={{fontSize:"1.1em"}}>Description</label>
@@ -73,27 +73,23 @@ function Addcake() {
     <input type="text" onChange={ingredients}  class="form-control" style={{height:"2em"}} aria-describedby="emailHelp"></input>
                     </div>
                     <div class="form-group" >
-    <label for="Cake" style={{fontSize:"1.1em"}}>Category</label>
-    <input type="text" onChange={category}  class="form-control" style={{height:"2em"}} aria-describedby="emailHelp"></input>
+    <label for="Cake" style={{fontSize:"1.1em"}}>Type</label>
+    <input type="text" onChange={type}  class="form-control" style={{height:"2em"}} aria-describedby="emailHelp"></input>
                     </div>
 
                     <div class="form-group">
       <label for="validationTooltip04">Eggless</label>
-      <select class=" form-control " onChange={eggless}  style={{height:"2em"}} id="validationTooltip04" required>
-        <option selected disabled value="" onChange={eggless} >Choose...</option>
-                        <option>True</option>
-                        <option>False</option>                        
-                    </select>
+      <input type="text" onChange={eggless}  class="form-control" style={{height:"2em"}} aria-describedby="emailHelp"></input>
                     </div>
                     
                     <div class="form-group">
     <label for="price" style={{fontSize:"1.1em"}}>Price</label>
-    <input type="number" onChange={userName}  style={{height:"2em"}} class="form-control"></input>
+    <input type="number" onChange={price}  style={{height:"2em"}} class="form-control"></input>
                     </div>                 
                     
                     <div class="form-group">
     <label for="exampleFormControlFile1" style={{fontSize:"1.1em",marginRight:"20em"}}>Cake Image:</label>
-         <input type="file" onChange={price}  name="image" style={{ height: "2em" }} class="form-control-file" id="exampleFormControlFile1" onChange={(event) => {setImageSelected(event.target.files[0])}} style={{marginLeft:"17em",marginTop:"-2.4em"}}></input>
+         <input type="file" name="image" style={{ height: "2em" }} class="form-control-file" id="exampleFormControlFile1" onChange={(event) => {setImageSelected(event.target.files[0])}} style={{marginLeft:"17em",marginTop:"-2.4em"}}></input>
     <button  class="btn btn-link" onClick={uploadImage} style={{color:"black",backgroundColor:"#979A9A ", marginLeft:"25em",marginTop:"-3.1em"}} type="button" id="inputGroupFileAddon04">UPLOAD</button>
                     </div>
                   

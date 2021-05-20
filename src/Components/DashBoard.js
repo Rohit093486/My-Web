@@ -49,7 +49,7 @@ function DashBoard() {
                   <th style={{width:"100px"}}>Image</th>
                   <th style={{width:"150px"}}>Name</th>
                   <th style={{width:"100px"}}>Price</th>
-                  <th style={{width:"150px"}}> <Link to="/Addcake"><button class="btn btn-sm btn-outline-secondary">New cake</button></Link></th>                  
+                  <th style={{width:"150px"}}> <Link to="/Addcake"  style={{textDecorationColor:"#F0F3F4 "}}><button class="btn btn-sm btn-outline-secondary">New cake</button></Link></th>                  
                 </tr>
               </thead>              
             </table>

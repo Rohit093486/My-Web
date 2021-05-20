@@ -2,7 +2,7 @@ import { Component } from "react";
 import axios from 'axios';
 import { connect } from 'react-redux'
 import { toast } from "react-toastify";
-import { Link } from "react-router-dom";
+
 
 class Buy extends Component{
   constructor(props){

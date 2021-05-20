@@ -33,7 +33,7 @@ class Checkout extends Component {
                        return <CartSumary key={index} cakedata={each} />                                    
                      })     
                     }
-                    <Link to="/address"><button type="button" style={{marginLeft:"30em"}} class="btn btn-success">Next</button></Link> 
+                    <Link to="/address"  style={{textDecorationColor:"#F0F3F4 "}}><button type="button" style={{marginLeft:"30em"}} class="btn btn-success">Next</button></Link> 
                 </div>
                 </div>
         )
