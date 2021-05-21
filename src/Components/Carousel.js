@@ -13,7 +13,7 @@ class Carousel extends Component {
     render() {
         return (   
 
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style={{marginTop:"4em"}}>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style={{marginTop:"3.5em"}}>
     <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>

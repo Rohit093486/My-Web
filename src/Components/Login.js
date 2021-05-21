@@ -5,39 +5,14 @@ import { toast } from "react-toastify";
 import {connect} from "react-redux"
 
 
-// const Loading = () => <div className="loading">
-//     <div></div>
-//     <div></div>
-// </div>
-    
-
-
 class Login extends Component {
     constructor(props) {
-        super(props)
-        
-        // this.getemail = this.getemail.bind(this);
-        // this.getpassword = this.getpassword.bind(this);
-        // this.Click = this.Click.bind(this);       
+        super(props)  
         this.state = {
             Loading:true,
             userDetail: {}            
         }
     }
-    // componentDidMount() {
-    //     this.isLoading = setTimeout(() => {
-    //         this.setState({
-    //             Loading: false
-    //         })
-    //     }, 2300);
-    // }
-    // componentWillUnmount() {
-    //     clearTimeout(this.isLoading);
-    // }
-    // timer = () =>setTimeout(()=>{
-    //     this.setState({ Loading: false })
-    // }
-    //     , 2300)
     vaild=()=>{
         if(!this.state.userDetail.email.includes("@") && this.state.userDetail.password.length<4){
             this.setState({
@@ -112,48 +87,20 @@ class Login extends Component {
             toast("Server not Found");
             return;
         }
-    }
-    
-    //   componentDidMount(){
-    //       this.userDetail = JSON.parse(localStorage.getItem('user'));
-    //       if (localStorage.getItem('user')) {
-    //           this.setState({                
-    //               nameErr: this.userDetail.name,
-    //               passErr: this.userDetail.email,
-    //               token:this.userDetail.token,
-                  
-    //            })
-    //       } else {
-    //           this.setState({
-    //               nameErr: '',
-    //               passErr:''
-    //           })
-    //         }
-    //   }
-    // componentWillUpdate(nextprops,nextState) {
-    //     localStorage.setItem('user', JSON.stringify(nextState));
-    // }     
-    render() {
-        // const { loading } = this.state;loading ?(<Loading />):
+    } 
+    render() {       
         return (
-            <div> 
-                <form style={{ padding: "12.3em 20em", backgroundColor: "#E3D9DB " ,marginTop:"4em"}}>
-                    <h3 style={{ color: "red" }}>Login</h3>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">EMAIL ADDRESS</label>
-                        <input type="email" name="email" class="form-control" value={this.state.nameErr} id="exampleInputEmail1" onChange={this.getemail} aria-describedby="emailHelp" required></input>
-                        <p>{this.state.nameErr}</p>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">PASSWORD</label> <Link to="./forget"><p style={{ marginLeft: "17em", marginTop: "-1em" }}>Forgotten Password?</p> </Link>                        
-                        <input type="password" name="pswd" class="form-control" value={this.state.passErr} style={{ marginTop: "-1em" }} onChange={this.getpassword} id="exampleInputPassword1" required></input>
-                        <p>{this.state.passErr}</p>
-                        
-                    </div>                    
-                    <Link to='/'  style={{textDecorationColor:"#F0F3F4 "}}><button type="submit" class="btn btn-primary" onClick={this.Click}>Login</button></Link>
-                    <Link to="/registration"  style={{textDecorationColor:"#F0F3F4 "}}><button type="submit" class="btn btn-primary" style={{ marginLeft: "2em" }}>Registration</button></Link>                    
-                </form>        
-            </div>            
+            <div className="login">
+            <form className="login__form">
+                <h1>Login Here👨‍✈️</h1>                
+                <input type="email" placeholder="Email"  onChange={this.getemail}/>
+                    <input type="password" placeholder="Password" onChange={this.getpassword} />
+                    <Link to="/forget" style={{textDecoration:"none"}}><p style={{color:"black",marginRight:"22em",marginBottom:"-5px"}}>Forget Password ?</p></Link>     
+                    <button type="submit" className="submit_btn" onClick={this.Click}>Login</button>
+                   <Link to="/registration" style={{textDecoration:"none"}}><p style={{color:"black",marginRight:"22em",marginTop:"1em"}}>Registration 👨🏽‍✈️!</p></Link>
+                
+            </form>
+        </div>             
         )
     }
 }

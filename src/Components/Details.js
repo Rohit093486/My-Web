@@ -45,7 +45,7 @@ class Details extends Component {
         return (
             <div style={{width:"100vw",height:"97vh"}}>
             <div class="card mb-3" style={{ maxWidth: "75vw" ,marginLeft:"10em" ,marginTop:"10em",border:"none" ,}}>
-                    <Link to={`/cakedetails/${this.props.cakedata.cakeid}`} style={{textDecorationColor:"#F0F3F4 "}}>                    
+                    <Link to={`/cakedetails/${this.props.cakedata.cakeid}`} style={ {textDecoration:"none"}}>                    
             <div  class="card detail-card" style={{marginBottom:"2em",backgroundColor:"#F0F3F4 "}}>
               <div class="row no-gutters" >
                 <div class="col-md-4" style={{width:"100%", marginTop:"2em",marginBottom:"6em"}}>

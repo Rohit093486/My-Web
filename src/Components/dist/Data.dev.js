@@ -89,5 +89,6 @@ var Cakes = [{
   "name": "Red valvet",
   "image": "https://res.cloudinary.com/ashudev/image/upload/v1615294781/yw7o6p3a0edrkydjv1bs.jpg",
   "cakeid": 1615294790360
-}];
+}]; // https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpHRWfsD4kVgdyWurO1mtDi2PJtVhgiA8IYQ&usqp=CAU
+
 exports.Cakes = Cakes;

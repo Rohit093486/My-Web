@@ -7,30 +7,17 @@ class Forget extends Component {
     constructor() {
         super()
         this.state = {
-          userDetail:{},
-          // nameErr:""
+          userDetail:{}          
         }
   }
-  
-//   vaild=()=>{
-//     if(!this.state.userDetail.email.includes("@")){
-//         this.setState({
-//             nameErr:"Invaild Email",           
-//         })
-//     }
-// }
-
     userDetail = {}
-
-    
     getemail = (event) => {
         console.log(event.target.value);
       this.userDetail.email = event.target.value;
       this.setState({
         userDetail:this.userDetail
     })
-    }
-    
+    }    
       Click =(event)=> {
         event.preventDefault()       
         console.log("hello", this.userDetail);
@@ -52,24 +39,13 @@ class Forget extends Component {
      
     render() {
         return (
-            <div>  
-            <div>
-           <form style={{ padding: "15.5em 20em",backgroundColor:"#DEECDC",marginTop:"4em"}}>
-           <h3 style={{ color: "red" }}>FORGOTTEN PAGE</h3>
-                        
-            <div class="form-group">
-              <label for="exampleInputEmail1">EMAIL ADDRESS</label>
-              <input type="email" name="email" class="form-control" id="exampleInputEmail1" onChange={this.getemail} aria-describedby="emailHelp" required></input>
-              <p>{this.state.nameErr}</p>
-                </div>
-       
-    <Link to="/login"  style={{textDecorationColor:"#F0F3F4 "}}><button type="submit" class="btn btn-primary" onClick={this.Click}>Submit</button></Link>                  
-               
-   </form> 
-
-       </div>
- 
-       </div>
+          <div className="login">
+          <form className="login__form">
+              <h1>Forget Password👨‍✈️</h1>                
+              <input type="email" placeholder="Email"  onChange={this.getemail}/>                                      
+              <button type="submit" className="submit_btn" onClick={this.Click}>Get Password</button>
+          </form>
+      </div>
         )
     }
 }
