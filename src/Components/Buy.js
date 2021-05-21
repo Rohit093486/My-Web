@@ -68,9 +68,13 @@ class Buy extends Component{
         url:apiurl,
         data:this.Cakeoder,
         headers:{"authtoken":localStorage.token}
-    }).then((res)=>{
-      console.log(res.data)      
-      toast("Your Order is Book")      
+    }).then((res) => {
+      if (!res.data.error == "insufficient details"){
+        console.log(res.data)
+        toast("Your Order is Book")
+      } else {
+        toast("Empty Field")
+      }
     },(err) => { console.log(err) })
 } 
   render() {    

@@ -41,7 +41,8 @@ class Registration extends Component {
             toast("Id Create Sucessfully");
             this.props.history.push('/login')
             console.log("response",res);
-        },(err)=>{
+        }, (err) => {
+            toast("Empty 👨🏽‍✈️")
             console.log("error",err);
         })
     }
@@ -49,7 +50,7 @@ class Registration extends Component {
     render() {
         return (
             <div className="login">
-            <form className="login__form ">
+            <form className="login__form needs-validation" novalidate>
                 <h1>Registration Here👨‍✈️</h1>
                 <input type="name" placeholder="Name"  onChange={this.getname} required/>
                 <input type="email" placeholder="Email"  onChange={this.getemail} required/>

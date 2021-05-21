@@ -83,12 +83,10 @@ class Login extends Component {
     render() {       
         return (
             <div className="login">
-            <form className="login__form">
+            <form className="login__form needs-validation" novalidate>
                 <h1>Login Here👨‍✈️</h1>                
-                    <input type="email" placeholder="Email" onChange={this.getemail} />
-                    
-                    <input type="password" placeholder="Password" onChange={this.getpassword} />
-                    
+                    <input type="email" placeholder="Email" onChange={this.getemail} />                    
+                    <input type="password" placeholder="Password" onChange={this.getpassword} />                    
                     <Link to="/forget" style={{textDecoration:"none"}}><p style={{color:"black",marginRight:"22em",marginBottom:"-5px"}}>Forget Password ?</p></Link>     
                     <button type="submit" className="submit_btn" onClick={this.Click}>Login</button>
                    <Link to="/registration" style={{textDecoration:"none"}}><p style={{color:"black",marginRight:"22em",marginTop:"1em"}}>Registration 👨🏽‍✈️!</p></Link>

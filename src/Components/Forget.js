@@ -21,16 +21,21 @@ class Forget extends Component {
       Click =(event)=> {
         event.preventDefault()       
         console.log("hello", this.userDetail);
-        // if (this.vaild()) {
+        // if (this.userDetail.email==="") {
           axios({
             method:"post",
             url: "https://apifromashu.herokuapp.com/api/recoverpassword",
             data: this.userDetail
           }).then((res) => {
-            toast("Send Password");
-            this.props.history.push('/login')
-            console.log("response", res);
+            if (!res.data.errorMessage === "Error in Resetting Password") {
+              toast("Send Password");
+              this.props.history.push('/login')
+              console.log("response", res);
+            } else {
+              toast("Empty")
+            }
           }, (err) => {
+            toast("Server Found");
             console.log("error", err);
           })
         // }
