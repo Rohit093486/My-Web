@@ -20,7 +20,7 @@ class Checkout extends Component {
         }).then((Response)=>{
             console.log(Response);                                
             this.cakes = Response.data.data
-            console.log(this.cakes[0].name);                
+            // console.log(this.cakes[0].name);                
             this.setState({
                 cakes: Response.data.data,
                 loading:false

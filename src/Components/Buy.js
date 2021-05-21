@@ -3,17 +3,21 @@ import axios from 'axios';
 import Loader from "react-loader-spinner";
 import { connect } from 'react-redux'
 import { toast } from "react-toastify";
+import OrderList from "./OrderList";
 
 
 class Buy extends Component{
   constructor(props){
     super(props);
-    this.state = {}   
+    this.state = {
+      cakeoderlist:[]
+    }   
   }
   total=0
   cakes = []
   cakesImg = []
-  cakesPrice =[]
+  cakesPrice = []
+  cakeoderlist=[]
 
   componentDidMount() {
     console.log(this.props.Oder)
@@ -21,14 +25,21 @@ class Buy extends Component{
       this.cakes.push(each.name);
       this.cakesImg.push(each.image);
       this.cakesPrice.push(each.price);
-      this.total=this.total+each.price;
+      this.total = this.total + each.price;
+      console.log(each);
     });
+    
     console.log(this.cakes);
-    console.log(this.total);    
+    console.log(this.total);
+    console.log(this.cakesImg);
+    console.log(this.cakesPrice);
      this.Cakeoder.price=this.total
     this.Cakeoder.cakes = this.cakes
     this.Cakeoder.cakesImg = this.cakesImg
-    this.Cakeoder.cakesPrice= this.cakesPrice
+    this.Cakeoder.cakesPrice = this.cakesPrice
+    console.log(this.Cakeoder);
+    this.cakeoderlist.push(this.Cakeoder)
+    console.log(this.cakeoderlist); 
   }
 
   Cakeoder = {}
@@ -51,25 +62,21 @@ class Buy extends Component{
 
   buy=(event)=>{
     event.preventDefault()
-    console.log(this.Cakeoder);     
-    let apiurl = "https://apifromashu.herokuapp.com/api/addcakeorder"
-    
+        
+    let apiurl = "https://apifromashu.herokuapp.com/api/addcakeorder"    
     axios({
         method:"post",
         url:apiurl,
         data:this.Cakeoder,
         headers:{"authtoken":localStorage.token}
     }).then((res)=>{
-      console.log(res.data)
-      
-      toast("Your Order is Book")
-      
+      console.log(res.data)      
+      toast("Your Order is Book")      
     },(err) => { console.log(err) })
-}    
-
-  render() {
-    const { loading } = this.state
+} 
+  render() {    
     return (
+      <div>
       <div>        
          <main role="main" class=" ml-sm-auto col-lg-9">
           <div class="table-responsive" >
@@ -105,8 +112,18 @@ class Buy extends Component{
               <button class="btn btn-primary" type="submit" onClick={this.buy} style={{ marginRight: "2em", marginTop: "1em" }}>Continue Checkout</button>
             </form>
           </div>
-        </main>
-      </div>
+        </main>       
+        </div>
+        <div>
+          {
+            this.cakeoderlist.map((ele,index)=>{
+              return (
+                <OrderList key={index} cakedata={ele} />
+            )
+            })
+          }
+        </div>
+        </div>
     )
   }
     }

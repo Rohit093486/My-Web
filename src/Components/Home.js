@@ -38,8 +38,9 @@ class Home extends Component {
         const { loading } = this.state
             return(
                 <div>
+                  
                     {loading && <div style={{ width: "100%", height: "100%", display: "flex", justifyContent: "center", alignItems: "center", marginTop: "20em" }}>
-                        <Loader type="ThreeDots" color="#00BFFF" height={80} width={100} />
+                        <Loader type="ThreeDots" color="#00BFFF" height={80} width={100} />                        
                     </div>}
                     {!loading&& <Carousel />}
                     {!loading&&<div className="row">

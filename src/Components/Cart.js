@@ -60,7 +60,7 @@ class Cart extends Component {
                      })                             
                           }                          
                           {
-                             this.state.cakes.length <= 0 && <div>
+                             this.state.cakes.length <=0 && <div>
                               <div class="card" style={{marginLeft:"1em"}}>                    
                               <div class="card mb-3 border-0 " style={{maxWidth: "600px"}}>
                                 <div class="row no-gutters ">

@@ -10,8 +10,7 @@ class OrderList extends Component {
         loading: false
       }               
   }
-
-  componentDidMount(){          
+  componentDidMount() {    
     let apiurl = "https://apifromashu.herokuapp.com/api/cakeorders"
     this.setState({loading:true})
     axios({
@@ -19,7 +18,7 @@ class OrderList extends Component {
       url: apiurl,
       headers: { "authtoken": localStorage.token }
     }).then((res) => {
-      console.log(res.data)      
+      console.log(res.data.cakeorders)      
       this.setState({
         MyList: res.data.cakeorders,
         loading:false
@@ -66,10 +65,9 @@ class OrderList extends Component {
                       </h2>
                     </div>
                     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                      <div class="card-body" style={{ backgroundColor: "#F7F2F2" }}>
-                        
+                      <div class="card-body" style={{ backgroundColor: "#F7F2F2" }}>                        
                         <ul>
-                          <li> <span style={{ color: "tomato" }}>Cake Name :</span> {`  ${each.cakes} `} </li>
+                        <li> <span style={{ color: "tomato" }}>Cake Name :</span> {`${each.cakes} `} </li>
                                                     
                         </ul>
                         
@@ -88,14 +86,6 @@ class OrderList extends Component {
           </div>
       
           )
-      
-    
     }
 }
-export default connect((state, props) => {
-  console.log(state)
-  return {
-    Oder: state["MyOder"]
-  }
-})(OrderList);
-// export default OrderList;
+export default OrderList;
