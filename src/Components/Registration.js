@@ -49,11 +49,11 @@ class Registration extends Component {
     render() {
         return (
             <div className="login">
-            <form className="login__form">
+            <form className="login__form ">
                 <h1>Registration Here👨‍✈️</h1>
-                <input type="name" placeholder="Name"  onChange={this.getname}/>
-                <input type="email" placeholder="Email"  onChange={this.getemail}/>
-                <input type="password" placeholder="Password" onChange={ this.getpassword}/>
+                <input type="name" placeholder="Name"  onChange={this.getname} required/>
+                <input type="email" placeholder="Email"  onChange={this.getemail} required/>
+                <input type="password" placeholder="Password" onChange={ this.getpassword} required/>
                 <button type="submit" className="submit_btn" onClick={this.register}>Sumbit</button> 
             </form>
         </div>

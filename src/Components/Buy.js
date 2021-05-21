@@ -1,6 +1,5 @@
 import { Component } from "react";
 import axios from 'axios';
-import Loader from "react-loader-spinner";
 import { connect } from 'react-redux'
 import { toast } from "react-toastify";
 import OrderList from "./OrderList";

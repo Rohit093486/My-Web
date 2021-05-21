@@ -10,26 +10,18 @@ class Login extends Component {
         super(props)  
         this.state = {
             Loading:true,
-            userDetail: {}            
+            userDetail: {},
+            nameErr: "",
+            passErr:""
         }
     }
-    vaild=()=>{
-        if(!this.state.userDetail.email.includes("@") && this.state.userDetail.password.length<4){
+    vaild = () => {
+         if (this.state.userDetail.email === "" && this.state.userDetail.password === "") {
             this.setState({
-                nameErr:"Invaild Email",
-                passErr:"password length must be 4 Character"
+                nameErr:" Email Empty",
+                passErr:"password Empty"
             })
-        }
-        else if (!this.state.userDetail.email.includes("@")) {
-            this.setState({
-                nameErr:"Invaild Email"
-            })
-        }
-        else if ( this.state.userDetail.password.length<4) {
-            this.setState({
-                passErr:"password length must be 4 Character"
-            })
-        }
+            } 
         else {
             return true;
         }
@@ -93,8 +85,10 @@ class Login extends Component {
             <div className="login">
             <form className="login__form">
                 <h1>Login Here👨‍✈️</h1>                
-                <input type="email" placeholder="Email"  onChange={this.getemail}/>
+                    <input type="email" placeholder="Email" onChange={this.getemail} />
+                    
                     <input type="password" placeholder="Password" onChange={this.getpassword} />
+                    
                     <Link to="/forget" style={{textDecoration:"none"}}><p style={{color:"black",marginRight:"22em",marginBottom:"-5px"}}>Forget Password ?</p></Link>     
                     <button type="submit" className="submit_btn" onClick={this.Click}>Login</button>
                    <Link to="/registration" style={{textDecoration:"none"}}><p style={{color:"black",marginRight:"22em",marginTop:"1em"}}>Registration 👨🏽‍✈️!</p></Link>

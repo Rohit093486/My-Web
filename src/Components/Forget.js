@@ -40,9 +40,9 @@ class Forget extends Component {
     render() {
         return (
           <div className="login">
-          <form className="login__form">
+          <form className="login__form needs-validation">
               <h1>Forget Password👨‍✈️</h1>                
-              <input type="email" placeholder="Email"  onChange={this.getemail}/>                                      
+              <input type="email" placeholder="Email"  onChange={this.getemail} required/>                                      
               <button type="submit" className="submit_btn" onClick={this.Click}>Get Password</button>
           </form>
       </div>
