@@ -9,7 +9,7 @@ class Checkout extends Component {
     constructor() {
         super()
         this.state = {
-            cakes: [],
+            cakes:[],
             loading: false
         }
     }

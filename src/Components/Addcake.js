@@ -12,8 +12,7 @@ function Addcake() {
             headers:{"authtoken":localStorage.token}
         })
             .then((res) => {
-                console.log(res.data.imageUrl);
-                toast("");
+                console.log(res.data.imageUrl);               
                 NewCake.image = res.data.imageUrl;
         })
     }     
@@ -47,7 +46,7 @@ function Addcake() {
         })
             .then((res) => {
                 console.log(res, "cake update");
-                toast("Add new Cake Success");
+                toast.Success("Add new Cake Success");
         })
     }
    

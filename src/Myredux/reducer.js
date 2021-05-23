@@ -1,6 +1,12 @@
 export function Rohit(state = {}, {type, payload }) {
     console.log("action");
     switch (type) {
+        case "Initialise": {
+            state = { ...state }
+            if (localStorage.token) {
+                state['isloggedin'] = true
+            }
+        }
         case "Login": {
             state = { ...state }
             state['isloggedin'] = true

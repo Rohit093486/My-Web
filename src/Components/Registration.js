@@ -26,10 +26,7 @@ class Registration extends Component {
         console.log(event.target.value);
        this.userDetail.password= event.target.value;
     }
-   
     
-   
-     
     register = (e) => {
         e.preventDefault()
         console.log(this.userDetail);
@@ -38,11 +35,11 @@ class Registration extends Component {
             url:"https://apifromashu.herokuapp.com/api/register",
             data:this.userDetail
         }).then((res) => {
-            toast("Id Create Sucessfully");
+            toast.success("Id Create Sucessfully");
             this.props.history.push('/login')
             console.log("response",res);
         }, (err) => {
-            toast("Empty 👨🏽‍✈️")
+            toast.warning("Empty 👨🏽‍✈️")
             console.log("error",err);
         })
     }

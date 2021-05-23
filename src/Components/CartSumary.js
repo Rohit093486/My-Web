@@ -4,11 +4,9 @@ import { Component } from "react";
 class CartSumary extends Component {
     constructor(props) {
         super(props)
-        this.state = {
-           
-        }
+        this.state = {}
     }
-  render() {
+  render(){
       console.log(this.props)
         return ( 
             <div >

@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 
 
 
+
 class Details extends Component {    
     constructor(props) {
         super(props)
@@ -28,11 +29,13 @@ class Details extends Component {
             console.log("helloresss", res);
             
            if( res.data !== "Session Expired"){
-               toast("Added to cart");
+               toast.success("Added to cart");
               
             }
            else {
-               toast("Please Login Your ID");
+               toast("Please Login Your ID");               
+               window.location.href= "/login"  
+                           
             }
             
             

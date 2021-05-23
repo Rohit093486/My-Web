@@ -6,7 +6,7 @@ class OrderList extends Component {
     constructor(props) {
         super(props)
       this.state = {
-        MyList: [],
+        MyList:[],
         loading: false
       }               
   }
@@ -28,7 +28,7 @@ class OrderList extends Component {
     
   }  
   render() {
-    console.log(this.props);
+    console.log(this.state.MyList);
     const { loading } = this.state
     return ( 
       <div style={{ marginTop: '4em'}}>
@@ -39,37 +39,56 @@ class OrderList extends Component {
         {!loading&&<div class="accordion" id="accordionExample">
           <div>
             {
-              this.state.MyList.map((each, index) => {
+              this.state.MyList.map((each,index) => {
                 console.log(each)
                 return (
                   <div class="card">
                     <div class="card-header" id="headingThree">
                       <h2 class="mb-0">
-                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      <button class="btn  btn-block text-left" type="button" data-toggle="collapse"  data-target={"#collapse"+index} aria-expanded="true" aria-controls="collapseOne">
                           <tabel>
                             <tr style={{ color: "black", textDecoration: "none" }}>
-                              <td style={{ width: "30%" }}> <li>Name : {each.name} </li>
-                                <li>Address : {each.address}({each.city}) </li>
-                                <li>Phone : {each.phone} </li>
+                              <td style={{ width: "30%" }}> <li><span style={{color:"tomato"}}>Name :</span> {each.name} </li>
+                                <li><span style={{color:"tomato"}}>Address :</span> {each.address}({each.city}) </li>
+                                <li> <span style={{ color: "tomato" }}>Phone : </span>{each.phone} </li>
                               </td>
-                              <td style={{ width: "30%" }} > Order date :  {each.orderdate}</td>
+                              <td style={{ width: "30%" }} ><span style={{color:"tomato"}}>Order date : </span> {each.orderdate}</td>
                             
-                              <td style={{ width: "20%" }}> Order Id:  {each.orderid}</td>
+                              <td style={{ width: "20%" }}><span style={{color:"tomato"}}>Order Id: </span>  {each.orderid}</td>
                             
-                              <td style={{ width: "20%" }} > Total Price: {each.price}</td>
+                              <td style={{ width: "20%" }} ><span style={{color:"tomato"}}>Total Price: </span>  Rs-{each.price}</td>
                             
-                              <td style={{ width: "30%" }} > Payment: {each.mode}</td>
+                              <td style={{ width: "30%" }} ><span style={{color:"tomato"}}>Payment: </span>  {each.mode}</td>
                             </tr>
                           </tabel>
                         </button>
                       </h2>
                     </div>
-                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                      <div class="card-body" style={{ backgroundColor: "#F7F2F2" }}>                        
-                        <ul>
-                        <li> <span style={{ color: "tomato" }}>Cake Name :</span> {`${each.cakes} `} </li>
-                                                    
-                        </ul>
+                    
+                    <div id={"collapse"+index} class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                      <div class="card-body" style={{ backgroundColor: "#F7F2F2" }}>
+                        <tabel style={{ width: "50vw", bottom: "1em" }}>
+                          <tr style={{display:"flex" ,justifyContent:"space-between",color:"tomato"}}>
+                            <th>Image</th>
+                            <th>Cake Name</th>
+                            <th>Price</th>
+                          </tr>
+                          </tabel>
+                        {
+                          each.cakes.map((each)=>{
+                            console.log(each)
+                            return(
+                             <div style={{ marginTop: "1em", left: "1em" }}>
+                              <tr style={{display:"flex" ,justifyContent:"space-between"}}>
+                                <td><img style={{ height: "35px", width: "35px" }} src={each.image}></img></td>
+                                <td>{each.name }</td>
+                                <td>Rs.{ each.price}</td>
+                                </tr>
+                               </div>
+                            )
+                          })
+                      }  
+                        {/* </tabel> */}
                         
                       </div>
                     </div>

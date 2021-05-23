@@ -12,7 +12,7 @@ class Cake extends Component {
         this.state = {}       
     }
     render() {
-        console.log("state,",this.props)
+        // console.log("state,",this.props)
         return (
              <div style={{borderBlockStyle:"#DCE5EC 2px solid",backgroundColor:"#F0F3F4"}}>   
               <Link to={`/cakedetails/${this.props.cakedata.cakeid}`} style={ {textDecoration:"none"}}>

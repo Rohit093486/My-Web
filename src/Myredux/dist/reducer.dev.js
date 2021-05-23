@@ -21,6 +21,15 @@ function Rohit() {
   console.log("action");
 
   switch (type) {
+    case "Initialise":
+      {
+        state = _objectSpread({}, state);
+
+        if (localStorage.token) {
+          state['isloggedin'] = true;
+        }
+      }
+
     case "Login":
       {
         state = _objectSpread({}, state);

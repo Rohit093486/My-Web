@@ -1,7 +1,7 @@
 import { Component } from "react";
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import { toast } from "react-toastify";
+import { connect } from "react-redux";
 class CartCake extends Component {
     constructor(props) {
         super(props)
@@ -9,8 +9,8 @@ class CartCake extends Component {
         //   qty: this.props.cakedata.quantity,
         //   price:this.props.cakedata.price,
         //   total: this.props.cakedata.price,
-        // totalPrice: 0,
-        cakeInfo:[]
+        // totalPrice:0,
+        cakeInfo: [],        
       }      
   }
   cakeinfo = []
@@ -19,43 +19,44 @@ class CartCake extends Component {
     this.setState({
         cakeInfo:this.cakeinfo
     })
+   
 }
     remove = () => {
-        console.log(this.props.cakedata.cakeid)
+      console.log(this.props.cakedata.cakeid);
+      this.setState({loading:true})
         axios.post('https://apifromashu.herokuapp.com/api/removecakefromcart',{ cakeid: this.props.cakedata.cakeid },
             { headers: { "authtoken": localStorage.token}})
-            .then((ress) => {            
-              console.log(ress)
-              if(ress){
+            .then((res) => {            
+              console.log(res)
+              if(res){
                 toast.warn("Item is removed");
                 this.setState({
                     cakeinfo:this.cakeinfo.splice(0,1)
-                })   
+                })
+                // window.location.href="/cart"
             }
-        }, (err) => {
+        },(err) => {
             console.log(err)
         })
     }
     
-    add=()=> {
-        this.setState({
-          qty: this.state.qty + 1
-          
-        });        
-      }
-    
-      subtract=()=> {
-        this.setState({
-          qty: this.state.qty - 1          
-        });
+  //   add=()=> {
+  //       this.setState({
+  //         qty: this.state.qty + 1          
+  //       });        
+  //     }    
+  //     subtract=()=> {
+  //       this.setState({
+  //         qty: this.state.qty - 1          
+  //       });
         
-  }
+  // }
    
-  cal=()=> {
-    this.setState({
-      total:this.state.qty*this.state.price
-    })     
-  }
+  // cal=()=> {
+  //   this.setState({
+  //     total:this.state.qty*this.state.price
+  //   })     
+  // }
   // total = () => {
   //   this.setState({
 
@@ -63,14 +64,16 @@ class CartCake extends Component {
   // }
   
   render() {
-    console.log(this.state.qty,"qty");
-      console.log(this.state.price,"price")
-    console.log(this.state.total, "total")
+   
+    // console.log(this.state.qty,"qty");
+    //   console.log(this.state.price,"price")
+    // console.log(this.state.total, "total")
     // console.log(this.state.cartItem);
-    
+    // console.log(this.state.cakeInfo)
     return (
       <div>
-        {!this.state.cakeInfo.length-1&&  
+         
+        {this.state.cakeInfo.length-1?"":  <div>
           <div style={{ marginTop: "1em", left: "1em" }}>
             <table style={{ width: "50vw", bottom: "1em" }}>
               <tbody>
@@ -87,6 +90,7 @@ class CartCake extends Component {
               </tbody>
             </table>
           </div>
+          </div>
         }
             </div>
         )
@@ -95,4 +99,6 @@ class CartCake extends Component {
 
 
 
-export default CartCake;
+export default  connect((state,props)=>{
+  console.log(state)
+  })(CartCake)

@@ -15,14 +15,24 @@ class Login extends Component {
             passErr:""
         }
     }
-    vaild = () => {
-         if (this.state.userDetail.email === "" && this.state.userDetail.password === "") {
+    vaild=()=>{
+        if(this.state.userDetail.email===""&& !this.state.userDetail.email.includes("@") && this.state.userDetail.password.length<4){
             this.setState({
-                nameErr:" Email Empty",
-                passErr:"password Empty"
+                nameErr:"Invaild Email",
+                passErr:"password length must be 4 Character"
             })
-            } 
-        else {
+        }
+        else if(this.state.userDetail.email==="" && !this.state.userDetail.email.includes("@")){
+            this.setState({
+                nameErr:"Invaild Email"
+            })
+        }
+        else if( this.state.userDetail.email==="" && this.state.userDetail.password.length<4){
+            this.setState({
+                passErr:"password length must be 4 Character"
+            })
+        }
+        else{
             return true;
         }
     }
@@ -43,11 +53,16 @@ class Login extends Component {
             userDetail:this.userDetail
         })
     }    
-    Click = (event) => {        
+    Click = (event) => {
+        this.setState({
+            nameErr:"",
+            passErr:""
+        })
         event.preventDefault()
         console.log("hello", this.userDetail);
         
-        if (this.vaild()) {
+        
+        if(this.vaild()) {
             console.log(this.state.userDetail);
             axios({
                 method:"post",
@@ -57,8 +72,8 @@ class Login extends Component {
                 console.log("my mess", res);
                 this.message = res.data;
                 
-                if(this.message.message !== 'Invalid Credentials'){
-                    toast("Welcome");                    
+                if(this.message.message!== 'Invalid Credentials'){
+                    toast.success("Welcome To CakeShop");                    
                     console.log("message ;.....", this.message);
                     localStorage.setItem("token", res.data.token);
                     localStorage.setItem("name", res.data.name);
@@ -68,31 +83,31 @@ class Login extends Component {
                    })
                     this.props.history.push('/');
                 } else {                    
-                    toast("please Check Your details");
+                    toast.warning("Check your Detail");
                 }              
             },(err)=>{
                 console.log("error",err);
-                toast("Oh! Sorry You enter Wrong details");
+                toast.warning("Enter Email / password");
             })         
-        }
-        else{
-            toast("Server not Found");
-            return;
-        }
+        }       
     } 
     render() {       
         return (
             <div className="login">
             <form className="login__form needs-validation" novalidate>
                 <h1>Login Here👨‍✈️</h1>                
-                    <input type="email" placeholder="Email" onChange={this.getemail} />                    
-                    <input type="password" placeholder="Password" onChange={this.getpassword} />                    
+                    <input type="email" placeholder="Email" onChange={this.getemail} />
+                    <p>{this.state.nameErr}</p>
+                    <input type="password" placeholder="Password" onChange={this.getpassword} />
+                    <p>{this.state.passErr}</p>
                     <Link to="/forget" style={{textDecoration:"none"}}><p style={{color:"black",marginRight:"22em",marginBottom:"-5px"}}>Forget Password ?</p></Link>     
                     <button type="submit" className="submit_btn" onClick={this.Click}>Login</button>
                    <Link to="/registration" style={{textDecoration:"none"}}><p style={{color:"black",marginRight:"22em",marginTop:"1em"}}>Registration 👨🏽‍✈️!</p></Link>
                 
             </form>
-        </div>             
+            </div>
+           
+          
         )
     }
 }

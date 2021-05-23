@@ -28,14 +28,14 @@ class Forget extends Component {
             data: this.userDetail
           }).then((res) => {
             if (!res.data.errorMessage === "Error in Resetting Password") {
-              toast("Send Password");
+              toast.success("Send Password");
               this.props.history.push('/login')
               console.log("response", res);
             } else {
-              toast("Empty")
+              toast.warning("Empty")
             }
           }, (err) => {
-            toast("Server Found");
+            toast.danger("Server Found");
             console.log("error", err);
           })
         // }

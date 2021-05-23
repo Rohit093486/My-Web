@@ -21,17 +21,15 @@ import Routes from './Components/Route';
 import Address from './Components/Address';
 const OtherComponent = React.lazy(() => import('./Components/DashBoard'));
 
-
-
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar />   
-        
+        <Navbar />       
         <div>
           <Route path='/' exact component={Home} />
           <Route path='/login' exact component={Login} />
+         
           <Route path='/registration' exact component={Registration} />
           <Route path='/forget' exact component={Forget} />
           <Route path='/search' exact component={Search} />     
