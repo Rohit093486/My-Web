@@ -56,7 +56,7 @@ class OrderList extends Component {
                             
                               <td style={{ width: "20%" }}><span style={{color:"tomato"}}>Order Id: </span>  {each.orderid}</td>
                             
-                              <td style={{ width: "20%" }} ><span style={{color:"tomato"}}>Total Price: </span>  Rs-{each.price}</td>
+                              <td style={{ width: "20%" }} ><span style={{color:"tomato"}}>Total Price: </span>  Rs:{each.price}</td>
                             
                               <td style={{ width: "30%" }} ><span style={{color:"tomato"}}>Payment: </span>  {each.mode}</td>
                             </tr>
