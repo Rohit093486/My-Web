@@ -34,7 +34,7 @@ class Details extends Component {
             }
            else {
                toast("Please Login Your ID");               
-               window.location.href= "/login"  
+               window.location.href = "/login"  
                            
             }
             

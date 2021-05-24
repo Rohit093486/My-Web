@@ -9,11 +9,8 @@ class Buy extends Component{
     super(props);
     this.state = {}   
   }
-  total=0 
+  total = 0
   
- 
- 
-
   componentDidMount() {
     console.log(this.props.Oder)
     this.props.Oder.data.map((each) => {      

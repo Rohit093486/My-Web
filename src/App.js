@@ -28,8 +28,7 @@ function App() {
         <Navbar />       
         <div>
           <Route path='/' exact component={Home} />
-          <Route path='/login' exact component={Login} />
-         
+          <Route path='/login' exact component={Login} />      
           <Route path='/registration' exact component={Registration} />
           <Route path='/forget' exact component={Forget} />
           <Route path='/search' exact component={Search} />     

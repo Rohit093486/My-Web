@@ -1,8 +1,7 @@
 import Details from "./Details";
-import { axios } from 'axios';
 import Loader from "react-loader-spinner";
 import { useState, useEffect } from "react";
-import {queryString} from "querystring"
+
 
 
 
