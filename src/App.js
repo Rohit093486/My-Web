@@ -1,13 +1,12 @@
 import React, { Suspense } from 'react';
 import './App.css';
-import { BrowserRouter, Route, Router } from 'react-router-dom';
+import { BrowserRouter, Route, Router, Switch } from 'react-router-dom';
 import Navbar from './Components/Navbar';
 import Home from './Components/Home';
 import Login from './Components/Login';
 import Registration from './Components/Registration';
 import Forget from './Components/Forget';
 import Search from './Components/Search';
-// import DashBoard from './Components/DashBoard';
 import ProductForm from './Components/ProductForm';
 import { ToastContainer, toast } from 'react-toastify';
 import CakeDetails from './Components/CakeDetails';
@@ -19,17 +18,19 @@ import Addcake from './Components/Addcake';
 import Checkout from './Components/Checkout';
 import Routes from './Components/Route';
 import Address from './Components/Address';
+import Pagenotfound from './Components/Pagenotfound';
+import {connect} from "react-redux"
 const OtherComponent = React.lazy(() => import('./Components/DashBoard'));
 
-function App() {
+function App(props){
   props.dispatch({
-    type:"Login"
+    type:"Initialise"
   })
   return (
     <div className="App">
       <BrowserRouter>
         <Navbar />       
-        <div>
+        <Switch>
           <Route path='/' exact component={Home} />
           <Route path='/login' exact component={Login} />      
           <Route path='/registration' exact component={Registration} />
@@ -47,12 +48,11 @@ function App() {
           <Route path="/Addcake" exact component={Addcake} />
           <Route path="/checkout" exact component={Checkout} />
           <Route path="/route" exact component={Routes} />
-        </div>
+          <Route path="*" component={Pagenotfound} />
+        </Switch>
       </BrowserRouter>
       <ToastContainer />
-      
-      
     </div>
   );
 }
-export default App;
+export default connect () (App);

@@ -35,8 +35,8 @@ function Search(props) {
     <div>    
       <div className="row" style={{ marginTop: "4em" }}>
       {Loading && <div style={{ width: "100%", height: "100%", display: "flex", justifyContent: "center", alignItems: "center", marginTop: "16em" }}>
-                        <Loader type="ThreeDots" color="#00BFFF" height={80} width={100} />
-                    </div>}
+        <Loader type="ThreeDots" color="#00BFFF" height={80} width={100} />
+      </div>}
         
       {!Loading&&cakeresult.map((each) => {
         return <Cake cakedata={each} />;

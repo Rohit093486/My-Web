@@ -28,6 +28,8 @@ function Rohit() {
         if (localStorage.token) {
           state['isloggedin'] = true;
         }
+
+        return state;
       }
 
     case "Login":

@@ -4,8 +4,9 @@ export function Rohit(state = {}, {type, payload }) {
         case "Initialise": {
             state = { ...state }
             if (localStorage.token) {
-                state['isloggedin'] = true
+                state['isloggedin'] = true    
             }
+            return state
         }
         case "Login": {
             state = { ...state }

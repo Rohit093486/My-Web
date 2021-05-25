@@ -10,7 +10,7 @@ function CakeDetails(props){
     
     let qq= props.match.params.id;
 
-    useEffect(() => {
+    useEffect(() =>{
       
         var apiurl = "https://apifromashu.herokuapp.com/api/cake/"+qq;
             
