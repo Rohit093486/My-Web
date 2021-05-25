@@ -1,15 +1,13 @@
-
 import { Component } from "react";
-
 class CartSumary extends Component {
-    constructor(props) {
-        super(props)
+    constructor() {
+        super()
         this.state = {}
     }
   render(){
       console.log(this.props)
         return ( 
-            <div >
+            <div>
                 <main role="main" class=" ml-sm-auto col-lg-5">
                         <div class="table-responsive" style={{marginLeft:"-25em"}}>
                           <table class="table" >             

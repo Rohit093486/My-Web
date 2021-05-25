@@ -19,7 +19,7 @@ function Search(props) {
     }).then(
       (response) => {
         // toast("Your Cakes");            
-        console.log(response.data);
+        console.log(response);
         setCakes(response.data.data);
         setLoading(false);
       },

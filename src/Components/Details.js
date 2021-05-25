@@ -3,14 +3,15 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { toast } from "react-toastify";
 
-
-
-
 class Details extends Component {    
     constructor(props) {
         super(props)
         this.state = {}
     }
+    fav=(() => {
+        toast.success("Add to favourite list ❤ ")
+     })
+    
     registers = () => {
              
         //   const history = new useHistory();
@@ -33,9 +34,8 @@ class Details extends Component {
               
             }
            else {
-               toast("Please Login Your ID");               
-               window.location.href = "/login"  
-                           
+               toast("Please Login Your ID");              
+               window.location.href = "/login" 
             }
             
             
@@ -72,7 +72,7 @@ class Details extends Component {
                                 e.preventDefault()                
                                 this.registers();                 
                                         }} type="button" class="btn btn-warning" style={{color:"white"}} >Add To Cart</button>
-                                        <button type="button" style={{marginLeft:"1em" ,color:"white"}} class="btn btn-warning" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                        <button type="button" style={{marginLeft:"1em" ,color:"white"}} onClick={this.fav} class="btn btn-warning" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
   <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
 </svg></button>
                                         

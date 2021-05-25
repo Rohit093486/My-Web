@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { connect } from "react-redux";
 import { Link ,useHistory} from "react-router-dom";
-import { toast } from "react-toastify";
+
 
 class Navbar extends Component{    
     constructor(props) {

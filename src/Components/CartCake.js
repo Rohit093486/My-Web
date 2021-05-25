@@ -14,35 +14,27 @@ class CartCake extends Component {
     this.cakeinfo.push(this.props.cakedata);
     this.setState({
         cakeInfo:this.cakeinfo
-    })
-   
+    })   
 }
     remove = () => {
       console.log(this.props.cakedata.cakeid);
       this.setState({loading:true})
-        axios.post('https://apifromashu.herokuapp.com/api/removecakefromcart',{ cakeid: this.props.cakedata.cakeid },
+        axios.post('https://apifromashu.herokuapp.com/api/removecakefromcart',{ cakeid:this.props.cakedata.cakeid  },
             { headers: { "authtoken": localStorage.token}})
             .then((res) => {            
               console.log(res)
-              if(res){
-                toast.warn("Item is removed");
+              toast.warn("Cart Item is removed");
                 this.setState({
                   cakeinfo: this.cakeinfo.splice(0, 1)                  
                 })
-                
-            }
+                window.location.href="/cart"
         },(err) => {
             console.log(err)
         })
-    }
-    
- 
-  
-  render() {
-   
+    }    
+  render() {   
     return (
-      <div>
-         
+      <div>         
         {this.state.cakeInfo.length-1?"": <div> <div>
           <div style={{ marginTop: "1em", left: "1em" }}>
             <table style={{ width: "50vw", bottom: "1em" }}>

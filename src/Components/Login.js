@@ -16,20 +16,36 @@ class Login extends Component {
         }
     }
     vaild=()=>{
-        if(this.state.userDetail.email===""&& !this.state.userDetail.email.includes("@") && this.state.userDetail.password.length<4){
+        if(!this.state.userDetail.email ){
             this.setState({
-                nameErr:"Invaild Email",
-                passErr:"password length must be 4 Character"
+                nameErr:"please enter your Email",                
             })
         }
-        else if(this.state.userDetail.email==="" && !this.state.userDetail.email.includes("@")){
+        else if(!this.state.userDetail.password){
+            this.setState({
+                passErr:"please enter vaild password"
+            })
+        }
+        else if(!this.state.userDetail.email && !this.state.userDetail.password || !this.state.userDetail.email.includes("@")){
+            this.setState({
+                nameErr:"Invaild Credentails",
+                passErr:"Password length must be aleast 4 or above Character"
+            })
+        }
+        else if(this.state.userDetail.email && !this.state.userDetail.email.includes("@")){
             this.setState({
                 nameErr:"Invaild Email"
             })
         }
-        else if( this.state.userDetail.email==="" && this.state.userDetail.password.length<4){
+        
+        else if(!this.state.userDetail.password || this.state.userDetail.password.length<4){
             this.setState({
-                passErr:"password length must be 4 Character"
+                passErr:"Please Enter Your Vaild Password"
+            })
+        }
+        else if(!this.state.userDetail.password  && this.state.userDetail.password.length<4){
+            this.setState({
+                passErr:"Password length must be aleast 4 or above Character"
             })
         }
         else{
@@ -87,7 +103,7 @@ class Login extends Component {
                 }              
             },(err)=>{
                 console.log("error",err);
-                toast.warning("Enter Email / password");
+                toast.warning("Server not Found");
             })         
         }       
     } 

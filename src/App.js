@@ -22,6 +22,9 @@ import Address from './Components/Address';
 const OtherComponent = React.lazy(() => import('./Components/DashBoard'));
 
 function App() {
+  props.dispatch({
+    type:"Login"
+  })
   return (
     <div className="App">
       <BrowserRouter>
@@ -52,5 +55,4 @@ function App() {
     </div>
   );
 }
-
 export default App;

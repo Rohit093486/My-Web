@@ -35,9 +35,15 @@ class Registration extends Component {
             url:"https://apifromashu.herokuapp.com/api/register",
             data:this.userDetail
         }).then((res) => {
-            toast.success("Id Create Sucessfully");
+            console.log(res.data.message);
+            if (!res.data.message == "User Already Exists") {
+                toast.success("Id Create Sucessfully");
             this.props.history.push('/login')
             console.log("response",res);
+            } else {
+                toast.warning("User Already Exists")
+            }
+            
         }, (err) => {
             toast.warning("Empty 👨🏽‍✈️")
             console.log("error",err);

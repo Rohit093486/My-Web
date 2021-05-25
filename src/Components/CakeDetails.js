@@ -2,10 +2,6 @@ import Details from "./Details";
 import Loader from "react-loader-spinner";
 import { useState, useEffect } from "react";
 
-
-
-
-
 function CakeDetails(props){
 
   var [cakeresult, setCakes] = useState({});

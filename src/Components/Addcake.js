@@ -46,7 +46,7 @@ function Addcake() {
         })
             .then((res) => {
                 console.log(res, "cake update");
-                toast.Success("Add new Cake Success");
+                toast.Success("New Cake Successfully Add");
         })
     }
    
