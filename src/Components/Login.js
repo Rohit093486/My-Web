@@ -5,9 +5,9 @@ import { toast } from "react-toastify";
 import {connect} from "react-redux"
 
 
-class Login extends Component {
-    constructor(props) {
-        super(props)  
+class Login extends Component{
+    constructor(){
+        super()  
         this.state = {
             Loading:true,
             userDetail: {},
@@ -86,9 +86,8 @@ class Login extends Component {
                 data:this.state.userDetail        
             }).then((res) => {
                 console.log("my mess", res);
-                this.message = res.data;
-                
-                if(this.message.message!== 'Invalid Credentials'){
+                this.message = res.data;                
+                if(this.message.message!=='Invalid Credentials'){
                     toast.success("Welcome To CakeShop");                    
                     console.log("message ;.....", this.message);
                     localStorage.setItem("token", res.data.token);

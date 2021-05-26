@@ -11,7 +11,7 @@ function Search(props) {
   console.log(query.q);
 
   useEffect(() => {
-    var apiurl = "https://apifromashu.herokuapp.com/api/searchcakes?q=" + query.q;
+    var apiurl = "https://apifromashu.herokuapp.com/api/searchcakes?q="+ query.q;
     setLoading(true);
     axios({
       method:"get",
